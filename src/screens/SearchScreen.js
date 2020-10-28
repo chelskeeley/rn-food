@@ -5,7 +5,7 @@ import SearchBar from "../components/SearchBar";
 import ResultsList from "../components/ResultsList";
 import useResults from "../hooks/useResults";
 
-const SearchScreen = ({ navigation }) => {
+const SearchScreen = () => {
   //
   // state hooks
   //
@@ -36,17 +36,14 @@ const SearchScreen = ({ navigation }) => {
         <ResultsList
           title="Cost Effective"
           results={filterResultsByPrice("$")}
-          navigation={navigation}
         />
         <ResultsList
           title="Bit Pricier"
           results={filterResultsByPrice("$$")}
-          navigation={navigation}
           />
         <ResultsList
           title="Big Spender"
           results={filterResultsByPrice("$$$")}
-          navigation={navigation}
         />
       </ScrollView>
     </>
