@@ -5,7 +5,7 @@ import SearchBar from "../components/SearchBar";
 import ResultsList from "../components/ResultsList";
 import useResults from "../hooks/useResults";
 
-const SearchScreen = () => {
+const SearchScreen = ({ navigation }) => {
   //
   // state hooks
   //
@@ -25,7 +25,7 @@ const SearchScreen = () => {
   }
 
   return (
-    <View style={styles.background}>
+    <>
       <SearchBar
         term={term}
         onTermChange={newTerm => setTerm(newTerm)}
@@ -33,11 +33,23 @@ const SearchScreen = () => {
       />
       {errorMessage ? <Text>{errorMessage}</Text> : null}
       <ScrollView>
-        <ResultsList title="Cost Effective" results={filterResultsByPrice("$")} />
-        <ResultsList title="Bit Pricier" results={filterResultsByPrice("$$")} />
-        <ResultsList title="Big Spender" results={filterResultsByPrice("$$$")} />
+        <ResultsList
+          title="Cost Effective"
+          results={filterResultsByPrice("$")}
+          navigation={navigation}
+        />
+        <ResultsList
+          title="Bit Pricier"
+          results={filterResultsByPrice("$$")}
+          navigation={navigation}
+          />
+        <ResultsList
+          title="Big Spender"
+          results={filterResultsByPrice("$$$")}
+          navigation={navigation}
+        />
       </ScrollView>
-    </View>
+    </>
   );
 }
 
